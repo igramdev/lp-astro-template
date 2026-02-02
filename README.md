@@ -25,29 +25,41 @@
 GitHub CLIを使用:
 
 ```bash
-gh repo create my-landing-page --template your-org/lp-astro-template --private --clone
-cd my-landing-page
+# 新しいリポジトリを作成（カレントディレクトリに展開）
+mkdir my-landing-page && cd my-landing-page
+gh repo create my-landing-page --template igramdev/lp-astro-template --private --clone .
 ```
 
-### 2. プロジェクトの初期化
+または GitHub Web UIから:
+1. https://github.com/igramdev/lp-astro-template で「Use this template」をクリック
+2. 新しいリポジトリを作成後、クローン
+
+### 2. 依存パッケージをインストール
 
 ```bash
 npm install
 ```
 
-プロジェクト名（URLパスとして使用される）を入力してください。例: `client-a`
+### 3. プロジェクト設定を変更
 
-このスクリプトは以下を実行します:
-- 設定ファイル内の `project-name` を実際のプロジェクト名に置換
-- ディレクトリ名をプロジェクト名に変更
+`util/config.mjs` を編集し、★マークの項目を更新:
+- `PROJECT_NAME` - URLパスとコンテナID
+- `SITE_URL` - サイトURL
+- `SITE_NAME` - サイト名
+- など
 
-### 3. 開発サーバーを起動
+また、以下のディレクトリ名も変更:
+- `src/pages/example/` → `src/pages/{your-project}/`
+- `public/example/` → `public/{your-project}/`
+- `src/css/style.css` 内の `#project-name` セレクター
+
+### 5. 開発サーバーを起動
 
 ```bash
 npm run dev
 ```
 
-ブラウザで `http://localhost:4321/project-name/` を開いてください。
+ブラウザで `http://localhost:4321/{your-project}/` を開いてください。
 
 ## コマンド
 
