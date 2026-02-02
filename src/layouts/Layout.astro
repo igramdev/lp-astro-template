@@ -1,0 +1,94 @@
+---
+import { css, js, ogImage as getOgImage } from '../../util/assets';
+import {
+  PROJECT_NAME,
+  BASE_PATH,
+  SITE_NAME,
+  SITE_SHORT_NAME,
+  SITE_DESCRIPTION,
+  THEME_COLOR,
+  OGP_IMAGE,
+} from '../../util/settings';
+import type { Meta } from '../../util/types';
+// import '../css/style.css';
+
+interface Props extends Meta {}
+
+const {
+  title = SITE_NAME,
+  description = SITE_DESCRIPTION,
+  ogImage = getOgImage(OGP_IMAGE),
+  lang = 'ja',
+  siteName = SITE_NAME,
+  siteShortName = SITE_SHORT_NAME,
+} = Astro.props;
+
+const isDev = import.meta.env.DEV;
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content={THEME_COLOR} />
+
+    <!-- OGP -->
+    <meta property="og:title" content={title} />
+    <meta property="og:site_name" content={siteName} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <title>{title}</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href={`${BASE_PATH}/favicon.ico`} />
+    <link rel="icon" type="image/png" sizes="32x32" href={`${BASE_PATH}/favicon-32x32.png`} />
+    <link rel="icon" type="image/png" sizes="16x16" href={`${BASE_PATH}/favicon-16x16.png`} />
+    <link rel="apple-touch-icon" sizes="180x180" href={`${BASE_PATH}/apple-touch-icon.png`} />
+    <!-- PWA Manifest Optional
+    <link rel="manifest" href={`${BASE_PATH}/site.webmanifest`} />
+    -->
+    <!-- Scripts -->
+    {
+      isDev ? (
+        <script type="module" src="/src/scripts/main.ts"></script>
+      ) : (
+        <>
+          <link rel="stylesheet" href={css()} />
+          <script defer src={js()}></script>
+        </>
+      )
+    }
+
+    <!-- Google Tag Manager (optional) -->
+    <!-- <script>
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-XXXXXXX');
+    </script> -->
+  </head>
+  <body>
+    <!-- Google Tag Manager (noscript) -->
+    <!-- <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+      height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    </noscript> -->
+
+    <!-- Container for CSS scoping -->
+    <div id={PROJECT_NAME}>
+      <slot />
+    </div>
+
+  </body>
+</html>

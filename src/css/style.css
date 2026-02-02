@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Scope all styles under the project container */
+/* ★ CHANGE: Replace 'project-name' with your PROJECT_NAME from util/config.mjs */
+#project-name {
+  /* Base styles */
+  @apply min-h-screen;
+
+  /* Reset box-sizing */
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  /* Reset margins */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol {
+    margin: 0;
+  }
+
+  /* Reset lists */
+  ul,
+  ol {
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Reset links */
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  /* Reset buttons */
+  button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font: inherit;
+  }
+
+  /* Custom styles */
+  .container {
+    max-width: 1200px;
+  }
+}

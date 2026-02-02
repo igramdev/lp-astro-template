@@ -1,0 +1,26 @@
+{
+  "name": "project-name",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Static landing page template built with Astro + Vite for embedding into external websites",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && npm run build:assets && npm run build:prettier",
+    "build:assets": "vite build",
+    "build:prettier": "npx prettier --write \"dist/**/*.html\" --ignore-path .prettierignore",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "^5.0.0",
+    "@astrojs/tailwind": "^6.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.0.10"
+  }
+}

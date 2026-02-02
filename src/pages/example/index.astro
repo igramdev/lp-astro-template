@@ -1,0 +1,78 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/common/Header.astro';
+import Footer from '../../components/common/Footer.astro';
+import { img } from '../../../util/assets';
+---
+
+<Layout
+  title="Template Name - Landing Page"
+  description="This is a sample landing page template"
+  ogImage={img('ogp.png')}
+  lang="en"
+>
+  <Header />
+
+  <main class="main-content">
+    <section class="hero py-20 text-center">
+      <div class="container mx-auto px-4">
+        <h2 class="text-5xl font-bold mb-6">Welcome to Template Name</h2>
+        <p class="text-xl text-gray-600 mb-8">
+          This is a starter template for building landing pages with Astro + Vite
+        </p>
+        <img class="mb-8" src={img('cover-pc.jpg')} alt="Hero" />
+        <button class="bg-blue-600 text-white px-8 py-3 rounded-lg hover:bg-blue-700 transition">
+          Get Started
+        </button>
+      </div>
+    </section>
+
+    <section id="about" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-8">About</h3>
+        <p class="text-center text-gray-600 max-w-2xl mx-auto">
+          This template is designed for creating landing pages that can be embedded
+          into external websites without conflicting with existing styles or scripts.
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="py-16">
+      <div class="container mx-auto px-4">
+        <h3 class="text-3xl font-bold text-center mb-12">Features</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="text-center p-6">
+            <h4 class="text-xl font-bold mb-4">Scoped Styles</h4>
+            <p class="text-gray-600">
+              CSS is scoped to prevent conflicts with existing site styles
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <h4 class="text-xl font-bold mb-4">IIFE JavaScript</h4>
+            <p class="text-gray-600">
+              JS is bundled as IIFE to avoid polluting global scope
+            </p>
+          </div>
+          <div class="text-center p-6">
+            <h4 class="text-xl font-bold mb-4">Fast Development</h4>
+            <p class="text-gray-600">
+              Hot module replacement with Vite for rapid development
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4 text-center">
+        <h3 class="text-3xl font-bold mb-6">Contact</h3>
+        <p class="text-gray-600 mb-8">Ready to get started? Reach out to us!</p>
+        <button class="bg-gray-800 text-white px-8 py-3 rounded-lg hover:bg-gray-900 transition">
+          Contact Us
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>
