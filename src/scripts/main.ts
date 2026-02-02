@@ -5,7 +5,7 @@
  * to avoid polluting the global scope when embedded in external websites.
  */
 import '@/css/style.css';
-import { PROJECT_NAME } from '@/util/config.mjs';
+import { PROJECT_NAME } from '@util/config.mjs';
 
 // Type definitions
 interface AppConfig {
