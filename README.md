@@ -25,9 +25,17 @@
 GitHub CLIを使用:
 
 ```bash
-# 新しいリポジトリを作成（カレントディレクトリに展開）
-mkdir my-landing-page && cd my-landing-page
-gh repo create my-landing-page --template igramdev/lp-astro-template --private --clone .
+# 新しいリポジトリを作成してクローン
+gh repo create my-landing-page --template igramdev/lp-astro-template --private --clone
+cd my-landing-page
+```
+
+カレントディレクトリに展開したい場合:
+
+```bash
+# 空のディレクトリで実行
+gh repo create my-landing-page --template igramdev/lp-astro-template --private
+git clone https://github.com/YOUR-USERNAME/my-landing-page.git .
 ```
 
 または GitHub Web UIから:
